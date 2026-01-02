@@ -11,6 +11,7 @@ import lesson03 from '../lessons/03-lists.md?raw'
 import lesson04 from '../lessons/04-links.md?raw'
 import lesson05 from '../lessons/05-images.md?raw'
 import lesson06 from '../lessons/06-tables.md?raw'
+import lesson07 from '../lessons/07-todolist.md?raw'
 
 const TutorialContext = createContext()
 
@@ -39,7 +40,7 @@ export function TutorialProvider({ children }) {
   useEffect(() => {
     try {
       // Parse all lesson files
-      const rawLessons = [lesson01, lesson02, lesson03, lesson04, lesson05, lesson06]
+      const rawLessons = [lesson01, lesson02, lesson03, lesson04, lesson05, lesson06, lesson07]
       const parsedLessons = rawLessons.map(raw => parseLesson(raw))
 
       // Sort by ID
