@@ -39,6 +39,7 @@ src/
 │   ├── LessonNav.jsx           # Lesson navigation with progress indicators
 │   ├── HintPanel.jsx           # Progressive hint system
 │   ├── ValidationFeedback.jsx  # Success/error feedback with animations
+│   ├── DarkModeToggle.jsx      # Animated dark mode toggle switch
 │   └── Gamification/
 │       ├── PointsDisplay.jsx       # Animated points counter
 │       ├── ProgressBar.jsx         # Overall progress visualization
@@ -54,7 +55,8 @@ src/
 │   ├── useLocalStorage.js      # LocalStorage persistence hook
 │   └── (validation hooks referenced in context)
 ├── context/
-│   └── TutorialContext.jsx     # Global state (lessons, progress, validation)
+│   ├── TutorialContext.jsx     # Global state (lessons, progress, validation)
+│   └── DarkModeContext.jsx     # Dark mode state and persistence
 ├── utils/
 │   ├── lessonParser.js         # Parse markdown frontmatter with gray-matter
 │   ├── markdownValidator.js    # Regex-based validation engine
@@ -93,6 +95,16 @@ src/
 - Achievements checked in achievements.js:34 after each completion
 - Progress tracked: completed lessons, total points, achievements
 - AchievementToast.jsx displays celebration animations
+
+### Dark Mode
+- DarkModeContext.jsx manages dark mode state via Context API
+- User preference persisted to localStorage via useLocalStorage hook
+- Tailwind CSS configured with `darkMode: 'class'` in tailwind.config.js
+- Dark mode toggled by adding/removing 'dark' class on document element
+- DarkModeToggle.jsx provides animated toggle switch (sun/moon icons) in header
+- All components support dark mode with `dark:` Tailwind variants
+- Smooth color transitions (300ms) for better UX
+- Comprehensive dark mode styles in index.css for markdown preview
 
 ## Lesson File Format
 
@@ -135,6 +147,7 @@ Lesson content in markdown here...
 - **LocalStorage Only**: No backend needed; progress saved locally
 - **Auto-advance**: Successful lessons auto-advance after 2 seconds
 - **Skip Option**: Users can skip lessons they're stuck on using the Skip button (added in LessonContainer.jsx)
+- **Dark Mode**: Class-based dark mode toggle with localStorage persistence; all components support both light and dark themes
 - **Browser Compatibility**: Buffer polyfill required for gray-matter to work in browser (configured in main.jsx and vite.config.js)
 
 ## Common Tasks
@@ -145,10 +158,19 @@ Edit `src/utils/markdownValidator.js:3` - uses regex pattern matching
 ### Add Achievement
 Add to ACHIEVEMENTS array in `src/utils/achievements.js:1` with check function
 
+### Modify Dark Mode
+- Toggle component: `src/components/DarkModeToggle.jsx`
+- Context/state: `src/context/DarkModeContext.jsx`
+- To change dark mode colors: Update `dark:` variants in component className attributes
+- To add dark mode to new components: Use Tailwind `dark:` prefix (e.g., `dark:bg-gray-800`)
+- Dark mode detection: Check `isDarkMode` from `useDarkMode()` hook
+
 ### Change Styling
 - Global styles: `src/index.css`
-- Tailwind config: `tailwind.config.js`
-- Markdown preview styles: `src/index.css:15-68` (.markdown-preview class)
+- Tailwind config: `tailwind.config.js` (includes `darkMode: 'class'` configuration)
+- Markdown preview styles: `src/index.css:11-79` (.markdown-preview class with dark mode support)
+- Dark mode: Add `dark:` prefix to Tailwind classes for dark mode variants
+- All components use `transition-colors duration-300` for smooth theme switching
 
 ### Debug Lesson Loading
 Check TutorialContext.jsx for lesson imports (see rawLessons array in useEffect) and lessonParser.js for parsing logic

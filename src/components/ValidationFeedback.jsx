@@ -13,8 +13,8 @@ function ValidationFeedback({ result }) {
       transition={{ duration: 0.3 }}
       className={`rounded-lg p-4 ${
         isCorrect
-          ? 'bg-green-50 border-2 border-green-500'
-          : 'bg-red-50 border-2 border-red-500'
+          ? 'bg-green-50 dark:bg-green-900/30 border-2 border-green-500 dark:border-green-700'
+          : 'bg-red-50 dark:bg-red-900/30 border-2 border-red-500 dark:border-red-700'
       }`}
     >
       <div className="flex items-start gap-3">
@@ -28,10 +28,10 @@ function ValidationFeedback({ result }) {
           </svg>
         )}
         <div className="flex-1">
-          <h4 className={`font-semibold ${isCorrect ? 'text-green-900' : 'text-red-900'}`}>
+          <h4 className={`font-semibold ${isCorrect ? 'text-green-900 dark:text-green-300' : 'text-red-900 dark:text-red-300'}`}>
             {isCorrect ? 'Correct!' : 'Not quite right'}
           </h4>
-          <p className={`text-sm mt-1 ${isCorrect ? 'text-green-800' : 'text-red-800'}`}>
+          <p className={`text-sm mt-1 ${isCorrect ? 'text-green-800 dark:text-green-200' : 'text-red-800 dark:text-red-200'}`}>
             {message}
           </p>
           {isCorrect && pointsEarned > 0 && (

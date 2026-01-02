@@ -4,7 +4,7 @@ function LessonNav() {
   const { lessons, currentLessonIndex, goToLesson, progress } = useTutorial()
 
   return (
-    <div className="bg-white border-b border-gray-200">
+    <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-2 overflow-x-auto py-3">
           {lessons.map((lesson, index) => {
@@ -22,10 +22,10 @@ function LessonNav() {
                   ${isCurrent
                     ? 'bg-blue-600 text-white shadow-md'
                     : isCompleted
-                    ? 'bg-green-100 text-green-800 hover:bg-green-200'
+                    ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-900/50'
                     : isLocked
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                   }
                 `}
               >

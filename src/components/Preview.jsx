@@ -3,9 +3,9 @@ import remarkGfm from 'remark-gfm'
 
 function Preview({ markdown }) {
   return (
-    <div className="h-full flex flex-col bg-gray-50">
-      <div className="bg-gray-100 px-4 py-2 border-b border-gray-200">
-        <h3 className="text-sm font-semibold text-gray-700">Preview</h3>
+    <div className="h-full flex flex-col bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+      <div className="bg-gray-100 dark:bg-gray-800 px-4 py-2 border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
+        <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">Preview</h3>
       </div>
       <div className="flex-1 overflow-auto p-6">
         {markdown ? (
@@ -15,9 +15,9 @@ function Preview({ markdown }) {
             </ReactMarkdown>
           </div>
         ) : (
-          <div className="text-gray-400 text-center py-12">
+          <div className="text-gray-400 dark:text-gray-500 text-center py-12">
             <svg
-              className="mx-auto h-12 w-12 text-gray-300"
+              className="mx-auto h-12 w-12 text-gray-300 dark:text-gray-600"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
