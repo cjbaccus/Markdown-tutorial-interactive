@@ -4,14 +4,14 @@ title: "Images"
 description: "Embed images in your markdown"
 difficulty: "beginner"
 points: 20
-task: "Add an image with alt text 'Logo' and URL https://example.com/logo.png"
+task: "Add an image with alt text 'Stormtrooper' and URL https://octodex.github.com/images/stormtroopocat.png"
 starterCode: ""
-expectedPattern: "^\\s*!\\[Logo\\]\\(https?://example\\.com/logo\\.png\\)\\s*$"
+expectedPattern: "^\\s*!\\[.+?\\]\\(.*\\.png\\)\\s*$"
 validationMode: "source"
 hints:
   - "Image syntax is similar to links, but starts with !"
   - "Format: ![alt text](image-url)"
-  - "The exact format needed: ![Logo](https://example.com/logo.png)"
+  - "The exact format needed: ![Stormtrooper](https://octodex.github.com/images/stormtroopocat.png)"
   - "Make sure there are no extra spaces inside the brackets or parentheses"
 successMessage: "Amazing! You've completed all the basic markdown lessons!"
 ---
